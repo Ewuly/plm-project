@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import axios from 'axios';
 
 const projectSchema = z.object({
   name: z.string().min(3, 'Le nom doit contenir au moins 3 caractères'),
@@ -24,11 +25,12 @@ export default function CreateProject() {
   const onSubmit = async (data: ProjectForm) => {
     setIsSubmitting(true);
     try {
-      // Ici, vous implementerez la création du projet
-      console.log(data);
+      // Envoyer les données au backend
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/projects`, data);
+      console.log('Projet créé:', response.data);
       router.push('/projects/list');
     } catch (error) {
-      console.error(error);
+      console.error('Erreur lors de la création du projet:', error);
     } finally {
       setIsSubmitting(false);
     }
