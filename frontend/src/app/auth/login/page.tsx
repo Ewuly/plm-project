@@ -26,7 +26,7 @@ export default function LoginPage() {
       // Ici, vous implementerez la logique de connexion
       console.log(data);
       router.push('/projects/list');
-    } catch (err) {
+    } catch {
       setError('Erreur de connexion');
     }
   };
