@@ -32,6 +32,14 @@ export default function Navbar() {
               Nouveau Projet
             </Link>
             <Link 
+              href="/auth/register"
+              className={`px-3 py-2 rounded-md ${
+                pathname === '/auth/register' ? 'bg-gray-900' : 'hover:bg-gray-700'
+              }`}
+            >
+              Inscription
+            </Link>
+            <Link 
               href="/auth/login"
               className={`px-3 py-2 rounded-md ${
                 pathname === '/auth/login' ? 'bg-gray-900' : 'hover:bg-gray-700'
