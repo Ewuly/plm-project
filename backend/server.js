@@ -1,18 +1,18 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+// const cors = require('cors');
 
 const app = express();
 
 // Configuration CORS
-const corsOptions = {
-  origin: 'https://plm-project-five.vercel.app', // Origine autorisée
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Méthodes HTTP autorisées
-  credentials: true, // Si des cookies ou des identifiants doivent être inclus
-};
+// const corsOptions = {
+//   origin: 'https://plm-project-five.vercel.app', // Assurez-vous que c'est l'URL correcte de votre frontend
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   credentials: true,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(express.json());
 
 // Connect to MongoDB
