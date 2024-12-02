@@ -5,8 +5,14 @@ const cors = require('cors');
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// Configuration CORS
+const corsOptions = {
+  origin: 'https://plm-project-five.vercel.app', // Origine autorisée
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Méthodes HTTP autorisées
+  credentials: true, // Si des cookies ou des identifiants doivent être inclus
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Connect to MongoDB
