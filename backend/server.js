@@ -24,6 +24,10 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use('/api/projects', require('./routes/projects'));
 app.use('/api/auth', require('./routes/auth'));
 
+app.get('/', (req, res) => {
+  res.send('Backend is running!');
+});
+
 // Start the server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
